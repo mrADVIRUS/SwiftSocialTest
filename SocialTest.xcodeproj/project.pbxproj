@@ -14,12 +14,12 @@
 		EE243CE81F4C5C1B004ACD62 /* FancyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE243CE71F4C5C1B004ACD62 /* FancyField.swift */; };
 		EE243CEA1F4C5D0A004ACD62 /* FancyBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE243CE91F4C5D0A004ACD62 /* FancyBtn.swift */; };
 		EE243CEC1F4C623A004ACD62 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE243CEB1F4C623A004ACD62 /* CircleImageView.swift */; };
+		EE2E1A271F4C6E8600C7E4B2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EE2E1A261F4C6E8600C7E4B2 /* GoogleService-Info.plist */; };
 		EEDE82CD1F1CDD67003691B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDE82CC1F1CDD67003691B7 /* AppDelegate.swift */; };
 		EEDE82CF1F1CDD67003691B7 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDE82CE1F1CDD67003691B7 /* SignInVC.swift */; };
 		EEDE82D21F1CDD67003691B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEDE82D01F1CDD67003691B7 /* Main.storyboard */; };
 		EEDE82D41F1CDD67003691B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEDE82D31F1CDD67003691B7 /* Assets.xcassets */; };
 		EEDE82D71F1CDD67003691B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEDE82D51F1CDD67003691B7 /* LaunchScreen.storyboard */; };
-		EEDE82DF1F1CDD8A003691B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EEDE82DE1F1CDD8A003691B7 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +32,8 @@
 		EE243CE71F4C5C1B004ACD62 /* FancyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FancyField.swift; path = View/FancyField.swift; sourceTree = "<group>"; };
 		EE243CE91F4C5D0A004ACD62 /* FancyBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FancyBtn.swift; path = View/FancyBtn.swift; sourceTree = "<group>"; };
 		EE243CEB1F4C623A004ACD62 /* CircleImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		EE2E1A251F4C699500C7E4B2 /* SocialTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SocialTest.entitlements; sourceTree = "<group>"; };
+		EE2E1A261F4C6E8600C7E4B2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EEDE82C91F1CDD67003691B7 /* SocialTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEDE82CC1F1CDD67003691B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEDE82CE1F1CDD67003691B7 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -39,7 +41,6 @@
 		EEDE82D31F1CDD67003691B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEDE82D61F1CDD67003691B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EEDE82D81F1CDD67003691B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EEDE82DE1F1CDD8A003691B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +101,7 @@
 		EEDE82CB1F1CDD67003691B7 /* SocialTest */ = {
 			isa = PBXGroup;
 			children = (
+				EE2E1A251F4C699500C7E4B2 /* SocialTest.entitlements */,
 				EE243CE21F4C59C9004ACD62 /* Utils */,
 				EEDE82E01F1CDF26003691B7 /* Controller */,
 				EEDE82E11F1CDF2D003691B7 /* View */,
@@ -108,7 +110,7 @@
 				EEDE82D31F1CDD67003691B7 /* Assets.xcassets */,
 				EEDE82D51F1CDD67003691B7 /* LaunchScreen.storyboard */,
 				EEDE82D81F1CDD67003691B7 /* Info.plist */,
-				EEDE82DE1F1CDD8A003691B7 /* GoogleService-Info.plist */,
+				EE2E1A261F4C6E8600C7E4B2 /* GoogleService-Info.plist */,
 			);
 			path = SocialTest;
 			sourceTree = "<group>";
@@ -178,6 +180,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 9CCA576RL3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -205,7 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEDE82D71F1CDD67003691B7 /* LaunchScreen.storyboard in Resources */,
-				EEDE82DF1F1CDD8A003691B7 /* GoogleService-Info.plist in Resources */,
+				EE2E1A271F4C6E8600C7E4B2 /* GoogleService-Info.plist in Resources */,
 				EEDE82D41F1CDD67003691B7 /* Assets.xcassets in Resources */,
 				EEDE82D21F1CDD67003691B7 /* Main.storyboard in Resources */,
 			);
@@ -397,6 +404,7 @@
 			baseConfigurationReference = 7E988E651642DBA4F1AB12D5 /* Pods-SocialTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SocialTest/SocialTest.entitlements;
 				DEVELOPMENT_TEAM = 9CCA576RL3;
 				INFOPLIST_FILE = SocialTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -411,6 +419,7 @@
 			baseConfigurationReference = 9A1A1FD995FEA248A23804D2 /* Pods-SocialTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SocialTest/SocialTest.entitlements;
 				DEVELOPMENT_TEAM = 9CCA576RL3;
 				INFOPLIST_FILE = SocialTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
