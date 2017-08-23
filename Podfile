@@ -11,4 +11,5 @@ target 'SocialTest' do
   pod 'Firebase/Database'
   pod 'FBSDKLoginKit'
   pod 'FBSDKCoreKit'
+  pod 'SwiftKeychainWrapper'
 end
