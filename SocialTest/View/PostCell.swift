@@ -10,15 +10,16 @@ import UIKit
 
 class PostCell: UITableViewCell {
 
+    @IBOutlet weak var lblLikes: UILabel!
+    @IBOutlet weak var ivProfile: CircleImageView!
+    @IBOutlet weak var lblUserName: UILabel!
+    @IBOutlet weak var ivPost: UIImageView!
+    @IBOutlet weak var tvCaption: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 
 }
