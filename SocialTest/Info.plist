@@ -34,25 +34,27 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-    <key>CFBundleURLTypes</key>
-    <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb274938956335502</string>
-            </array>
-        </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>274938956335502</string>
-    <key>FacebookDisplayName</key>
-    <string>HardCode Social</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>fbapi</string>
-        <string>fb-messenger-api</string>
-        <string>fbauth2</string>
-        <string>fbshareextension</string>
-    </array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb274938956335502</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>274938956335502</string>
+	<key>FacebookDisplayName</key>
+	<string>HardCode Social</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need to select your photos for post</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 </dict>
 </plist>

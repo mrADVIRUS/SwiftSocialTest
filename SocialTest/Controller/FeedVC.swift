@@ -12,12 +12,18 @@ import SwiftKeychainWrapper
 
 class FeedVC: UIViewController {
 
-    var posts: [Post] = []
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var imageAdd: CircleImageView!
+    
+    var posts: [Post] = []
+    
+    let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        imagePicker.delegate = self
+        
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
             if let snapshots = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshots {
@@ -27,28 +33,27 @@ class FeedVC: UIViewController {
                         let post = Post(postKey: key, postData: postDict)
                         self.posts.append(post)
                     }
-                } 
+                }
             }
             self.tableView.reloadData()
         })
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    // MARK: - IBActions
+    
     @IBAction func onBtnSignOutPressed(_ sender: Any) {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         print("JESS: TokenID removed from keychain - \(keychainResult)")
         try! Auth.auth().signOut()
         performSegue(withIdentifier: "FeedVCToSignInSegue", sender: nil)
+    }
+    
+    @IBAction func addImagePressed(_ sender: Any) {
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+        present(imagePicker, animated: true, completion: nil)
+
     }
 }
 
@@ -64,9 +69,28 @@ class FeedVC: UIViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
-        print("Caption: \(post.caption)")
-
-        return tableView.dequeueReusableCell(withIdentifier: "postCell") as! PostCell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as? PostCell {
+            cell.configureCell(post: post)
+            return cell
+        }
+        
+        return UITableViewCell()
     }
     
+ }
+ 
+ extension FeedVC : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    //MARK: - Delegates
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+//            imageAdd.contentMode = .scaleAspectFit
+            imageAdd.image = chosenImage
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
  }
