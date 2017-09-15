@@ -16,8 +16,8 @@ class FeedVC: UIViewController {
     @IBOutlet weak var imageAdd: CircleImageView!
     
     var posts: [Post] = []
-    
     let imagePicker = UIImagePickerController()
+    static var imageCache: NSCache<NSString, UIImage> = NSCache()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +52,9 @@ class FeedVC: UIViewController {
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
+//        imagePicker.modalPresentationStyle = .popover
         present(imagePicker, animated: true, completion: nil)
-
+//        imagePicker.popoverPresentationController?.barButtonItem = sender as! UIBarButtonItem
     }
 }
 
@@ -70,11 +71,16 @@ class FeedVC: UIViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let post = posts[indexPath.row]
         if let cell = tableView.dequeueReusableCell(withIdentifier: "postCell") as? PostCell {
-            cell.configureCell(post: post)
+            if let img = FeedVC.imageCache.object(forKey: post.imagesUrl as NSString) {
+                cell.configureCell(post: post, image: img)
+            } else {
+                cell.configureCell(post: post)
+            }
+            
             return cell
+        } else {
+            return PostCell()
         }
-        
-        return UITableViewCell()
     }
     
  }
