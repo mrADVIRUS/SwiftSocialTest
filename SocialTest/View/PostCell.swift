@@ -16,19 +16,26 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var ivPost: UIImageView!
     @IBOutlet weak var tvCaption: UITextView!
+    @IBOutlet weak var ivLike: UIImageView!
     
     var post:  Post!
+    var likesRef: DatabaseReference!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(likeHeartTapped))
+        tap.numberOfTapsRequired = 1
+        ivLike.addGestureRecognizer(tap)
+        ivLike.isUserInteractionEnabled = true
     }
 
     func configureCell(post: Post, image: UIImage? = nil) {
         self.post = post
+        likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         self.tvCaption.text = post.caption
         self.lblLikes.text = "\(post.likes)"
-        self.lblUserName.text = "TEST_USER"
+        self.lblUserName.text = "@_testUser"
         
         if image != nil {
             self.ivPost.image = image
@@ -49,6 +56,30 @@ class PostCell: UITableViewCell {
             })
             
         }
+        
+        likesRef.observeSingleEvent(of: .value, with: { snapshot in
+            if let _ = snapshot.value as? NSNull {
+                self.ivLike.image = UIImage(named: "empty-heart")
+            } else {
+                self.ivLike.image = UIImage(named: "filled-heart")
+            }
+        })
+        
+        
+    }
+    
+    func likeHeartTapped(sender: UITapGestureRecognizer) {
+        likesRef.observeSingleEvent(of: .value, with: { snapshot in
+            if let _ = snapshot.value as? NSNull {
+                self.ivLike.image = UIImage(named: "filled-heart")
+                self.post.adjustLikes(addLike: true)
+                self.likesRef.setValue(true)
+            } else {
+                self.ivLike.image = UIImage(named: "empty-heart")
+                self.post.adjustLikes(addLike: false)
+                self.likesRef.removeValue()
+            }
+        })
     }
 
 

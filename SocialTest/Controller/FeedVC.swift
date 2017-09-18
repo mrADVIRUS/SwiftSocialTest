@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import SwiftKeychainWrapper
+import FBSDKCoreKit
 
 class FeedVC: UIViewController {
 
@@ -24,6 +25,10 @@ class FeedVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if (FBSDKAccessToken.current().tokenString != nil) {
+            fetchFbUserInfo()
+        }
+        
         imagePicker.delegate = self
         
         DataService.ds.REF_POSTS.observe(.value, with: { (snapshot) in
@@ -86,6 +91,17 @@ class FeedVC: UIViewController {
     }
     
     // MARK: - Private
+    func fetchFbUserInfo() {
+        //                //get user name from FB
+        FBSDKGraphRequest(graphPath:"me", parameters: ["fields": "id, name, link, first_name, last_name, picture.type(large), email, birthday ,location ,friends ,hometown , friendlists"]).start(completionHandler: { (connection, result, error) in
+            if error == nil {
+                print("User Info : \(String(describing: result))")
+            } else {
+                print("Error Getting Info \(String(describing: error))")
+            }
+        })
+
+    }
     
     func uploadImage(_ image: UIImage, progressBlock: @escaping (_ percentage: Double) -> Void, completionBlock: @escaping (_ url: URL?, _ errorMessage: String?) -> Void) {
 

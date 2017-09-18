@@ -322,6 +322,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="ivLike" destination="bC2-q4-wbQ" id="ets-ek-DCW"/>
                                             <outlet property="ivPost" destination="seO-7A-WOb" id="udo-0e-9vA"/>
                                             <outlet property="ivProfile" destination="1l4-h2-ddk" id="8fa-3d-DdJ"/>
                                             <outlet property="lblLikes" destination="4al-yf-txM" id="jM0-G9-24D"/>
